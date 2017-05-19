@@ -27,6 +27,4 @@ class Calculator{
   }
 
 }
-echo "before we end"
-echo "$BOO"
 ?>
