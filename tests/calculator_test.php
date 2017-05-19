@@ -38,7 +38,6 @@ class CalculatorTest extends PHPUnit_Framework_TestCase{
       $this->assertEquals(5, $quotient); //check if 10/2 is equal to 5
     
   }
-  echo "before we end"
-  echo "$BOO"
+ 
 }
 ?>
