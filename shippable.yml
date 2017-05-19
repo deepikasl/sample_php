@@ -2,7 +2,7 @@ language: php
 
 php: 
   - 5.3
-  - 5.4
+  #- 5.4
   #- 5.5
   #- 5.6  
   
@@ -15,13 +15,4 @@ build:
     - mkdir -p shippable/codecoverage
     - mkdir -p shippable/testresults   
     - phpunit  --log-junit shippable/testresults/junit.xml --coverage-xml shippable/codecoverage tests/calculator_test.php
-    if($BOO==TEST) {
-      return 0;
-    }
-    else {
-      exit();
-    }
     
-    
-
-
