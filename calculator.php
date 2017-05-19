@@ -1,4 +1,5 @@
 <?php
+
 class Calculator{
   
   public function add($numbers_to_add){
@@ -26,4 +27,6 @@ class Calculator{
   }
 
 }
+echo "before we end"
+echo "$BOO"
 ?>
