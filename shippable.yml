@@ -11,6 +11,9 @@ env:
   - BOO=TEST
   
 build:
+  pre_ci:
+    - docker build -t=shippabledocker/sample_node:jun217 .
+
  # pre_ci_boot:
   #  image_name: drydock/u16phpall
   #  image_tag: master
@@ -22,9 +25,17 @@ build:
     - mkdir -p shippable/testresults   
     - phpunit  --log-junit shippable/testresults/junit.xml --coverage-xml shippable/codecoverage tests/calculator_test.php
   
+  post_ci:
+    - docker push shippabledocker/sample_node:jun217
+    
   cache: true
     
-integrations:    
+integrations:  
+  hub:
+ #Docker integration
+    - integrationName: ship-docker
+      type: docker
+      
   notifications:
     - integrationName: notify-slack 
       type: slack
