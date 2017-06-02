@@ -15,8 +15,8 @@ build:
     - mkdir -p shippable/codecoverage
     - mkdir -p shippable/testresults   
     - phpunit  --log-junit shippable/testresults/junit.xml --coverage-xml shippable/codecoverage tests/calculator_test.php
-    #- sleep m
-    - cs ps
+    - sleep 8m
+    #- cs ps
     
 integrations:    
   notifications:
