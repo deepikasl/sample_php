@@ -15,7 +15,7 @@ build:
     - mkdir -p shippable/codecoverage
     - mkdir -p shippable/testresults   
     - phpunit  --log-junit shippable/testresults/junit.xml --coverage-xml shippable/codecoverage tests/calculator_test.php
-    - sleep 8m
+    #- sleep 8m
     
 integrations:    
   notifications:
@@ -26,9 +26,9 @@ integrations:
         - "#rc-public" 
         - "#rc-private"
       on_start: always
-      on_success: always
-      on_failure: always 
-      on_cancel: always
+      on_success: change
+      on_failure: change 
+      on_cancel: change
        
     - integrationName: email         
       type: email        
@@ -38,9 +38,9 @@ integrations:
      # sendConsoleLogs : true
      # sendCoverageReports : true
       on_start: always
-      on_success: always 
-      on_failure: always 
-      on_cancel: always
+      on_success: change
+      on_failure: change
+      on_cancel: change
      
     - integrationName: irc  
       type: irc
@@ -48,9 +48,9 @@ integrations:
         - "chat.freenode.net#test-rc"
         - "webchat.irchighway.net#test-rc"
       on_start: always
-      on_success: always      
-      on_failure: always 
-      on_cancel: always
+      on_success: change  
+      on_failure: change
+      on_cancel: change
     
     - integrationName: notify-hipchat
       type: hipchat
@@ -59,9 +59,9 @@ integrations:
         - '#rc-public'
         - '@shiptestrcow'
       on_start: always
-      on_success: always   
-      on_failure: always
-      on_cancel: always
+      on_success: change
+      on_failure: change
+      on_cancel: change
      
     - integrationName: generic-webhook   #issue will get created in github samleNod project
       type: webhook
@@ -69,9 +69,9 @@ integrations:
         - title=Failure - $REPO_FULL_NAME - $BUILD_NUMBER
         - body=Shippable Run $BUILD_NUMBER ($BUILD_URL) failed for $COMPARE_URL 
       on_start: always
-      on_success: always
-      on_failure: always 
-      on_cancel: always
+      on_success: change
+      on_failure: change 
+      on_cancel: change
       
     - integrationName: project-trigger #samplNod project in shiptest-rc-ow will trigger
       type: webhook
@@ -81,16 +81,15 @@ integrations:
         - FOO=FUBU
         - GOO=GUBU
       on_start: always
-      on_success: always 
-      on_failure: always
-      on_cancel: always
+      on_success: change
+      on_failure: change
+      on_cancel: change
       
     - integrationName: resource-trigger
       type: webhook
       payload:
         - versionName=Shippable Run $BUILD_NUMBER 
       on_start: always
-      on_success: always 
-      on_failure: always
-      on_cancel: always
-      
+      on_success: change
+      on_failure: change
+      on_cancel: change      
