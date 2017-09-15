@@ -30,4 +30,8 @@ build:
     
   cache: true
     
-
+integrations:
+  hub:
+ #Docker integration
+    - integrationName: ship-docker
+      type: docker 
